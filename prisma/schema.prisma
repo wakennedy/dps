@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model Discs {
+  id      Int     @id(map: "id") @default(autoincrement())
+  brand   String? @db.VarChar(50)
+  name    String? @db.VarChar(50)
+  plastic String? @db.VarChar(50)
+  speed   Float?  @db.Real
+  glide   Float?  @db.Real
+  turn    Float?  @db.Real
+  fade    Float?  @db.Real
+}
