@@ -148,8 +148,6 @@ const Home = ({ discs }: Discs) => {
                   <p className="text-sm">{disc.turn}</p>
                   <p className="text-sm">{disc.fade}</p>
                 </div>
-                {/* <button onClick={() => setForm({title: note.title, content: note.content, id: note.id})} className="bg-blue-500 mr-3 px-3 text-white rounded">Update</button>
-                <button onClick={() => deleteNote(note.id)} className="bg-red-500 px-3 text-white rounded">X</button> */}
               </div>
             </li>
           ))}
