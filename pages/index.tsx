@@ -42,9 +42,9 @@ const Home = ({ discs }: Discs) => {
     router.replace(router.asPath);
   };
 
-  async function create(data: FormData) {
+  async function createDisc(data: FormData) {
     try {
-      fetch("http://localhost:3000/api/create", {
+      fetch("http://localhost:3000/api/disc/createDisc", {
         body: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json",
@@ -60,7 +60,7 @@ const Home = ({ discs }: Discs) => {
 
   const handleSubmit = async (data: FormData) => {
     try {
-      create(data);
+      createDisc(data);
     } catch (error) {
       console.log(error);
     }
