@@ -134,27 +134,28 @@ const Home = ({ discs }: Discs) => {
       </form>
       <br />
 
-      <div className="w-auto min-w-[25%] max-w-min mt-20 mx-auto space-y-6 flex flex-col items-stretch">
-        <ul>
-          {discs.map((disc) => (
-            <li key={disc.id} className="border-b border-gray-600 p-2">
-              <div className="flex justify-between">
-                <div className="flex-1">
-                  <h3 className="font-bold">{disc.brand}</h3>
-                  <p className="text-sm">{disc.plastic}</p>
-                  <p className="text-sm">{disc.name}</p>
-                  <p className="text-sm">{disc.speed}</p>
-                  <p className="text-sm">{disc.glide}</p>
-                  <p className="text-sm">{disc.turn}</p>
-                  <p className="text-sm">{disc.fade}</p>
-                </div>
-                {/* <button onClick={() => setForm({title: note.title, content: note.content, id: note.id})} className="bg-blue-500 mr-3 px-3 text-white rounded">Update</button>
-                <button onClick={() => deleteNote(note.id)} className="bg-red-500 px-3 text-white rounded">X</button> */}
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <table>
+        <tr>
+          <th>Brand</th>
+          <th>Name</th>
+          <th>Plastic</th>
+          <th>Speed</th>
+          <th>Glide</th>
+          <th>Turn</th>
+          <th>Fade</th>
+        </tr>
+        {discs.map((disc) => (
+          <tr key={disc.id}>
+            <td>{disc.brand}</td>
+            <td>{disc.name}</td>
+            <td>{disc.plastic}</td>
+            <td>{disc.speed}</td>
+            <td>{disc.glide}</td>
+            <td>{disc.turn}</td>
+            <td>{disc.fade}</td>
+          </tr>
+        ))}
+      </table>
     </div>
   );
 };
