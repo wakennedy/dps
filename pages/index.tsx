@@ -9,10 +9,10 @@ interface Discs {
     brand: string;
     name: string;
     plastic: string;
-    speed: string;
-    glide: string;
-    turn: string;
-    fade: string;
+    speed: any;
+    glide: any;
+    turn: any;
+    fade: any;
   }[];
 }
 
@@ -20,10 +20,10 @@ interface FormData {
   brand: string;
   name: string;
   plastic: string;
-  speed: string;
-  glide: string;
-  turn: string;
-  fade: string;
+  speed: any;
+  glide: any;
+  turn: any;
+  fade: any;
 }
 
 const Home = ({ discs }: Discs) => {
@@ -50,46 +50,8 @@ const Home = ({ discs }: Discs) => {
           "Content-Type": "application/json",
         },
         method: "POST",
-      }).then(() => {
-        if (data.id) {
-          deleteNote(data.id);
-          setForm({
-            brand: "",
-            name: "",
-            plastic: "",
-            speed: "",
-            glide: "",
-            turn: "",
-            fade: "",
-          });
-          refreshData();
-        } else {
-          setForm({
-            brand: "",
-            name: "",
-            plastic: "",
-            speed: "",
-            glide: "",
-            turn: "",
-            fade: "",
-          });
-          refreshData();
-        }
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  async function deleteNote(id: string) {
-    try {
-      fetch(`http://localhost:3000/api/note/${id}`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "DELETE",
-      }).then(() => {
-        refreshData();
+      }).then((res) => {
+        console.log(res);
       });
     } catch (error) {
       console.log(error);
@@ -135,28 +97,32 @@ const Home = ({ discs }: Discs) => {
         />
         <br />
         <input
-          type="text"
+          type="number"
+          step="any"
           placeholder="Speed"
           value={form.speed}
           onChange={(e) => setForm({ ...form, speed: e.target.value })}
         />
         <br />
         <input
-          type="text"
+          type="number"
+          step="0.1"
           placeholder="Glide"
           value={form.glide}
           onChange={(e) => setForm({ ...form, glide: e.target.value })}
         />
         <br />
         <input
-          type="text"
+          type="number"
+          step="0.1"
           placeholder="Turn"
           value={form.turn}
           onChange={(e) => setForm({ ...form, turn: e.target.value })}
         />
         <br />
         <input
-          type="text"
+          type="number"
+          step="0.1"
           placeholder="Fade"
           value={form.fade}
           onChange={(e) => setForm({ ...form, fade: e.target.value })}
