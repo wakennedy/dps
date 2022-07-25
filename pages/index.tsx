@@ -1,6 +1,6 @@
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, GetStaticProps } from "next";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { prisma } from "../lib/prisma";
 
 interface Discs {
@@ -137,17 +137,13 @@ const Home = ({ discs }: Discs) => {
       <div className="w-auto min-w-[25%] max-w-min mt-20 mx-auto space-y-6 flex flex-col items-stretch">
         <ul>
           {discs.map((disc) => (
-            <li key={disc.id} className="border-b border-gray-600 p-2">
-              <div className="flex justify-between">
-                <div className="flex-1">
-                  <h3 className="font-bold">{disc.brand}</h3>
-                  <p className="text-sm">{disc.plastic}</p>
-                  <p className="text-sm">{disc.name}</p>
-                  <p className="text-sm">{disc.speed}</p>
-                  <p className="text-sm">{disc.glide}</p>
-                  <p className="text-sm">{disc.turn}</p>
-                  <p className="text-sm">{disc.fade}</p>
-                </div>
+            <li key={disc.id}>
+              <div>
+                <h3></h3>
+                <p>
+                  {disc.brand} | {disc.plastic} |{disc.name} | {disc.speed} |{" "}
+                  {disc.glide} | {disc.turn} |{disc.fade}
+                </p>
               </div>
             </li>
           ))}
@@ -179,3 +175,22 @@ export const getServerSideProps: GetServerSideProps = async () => {
     },
   };
 };
+
+//todo
+// push the creation of the table into its own function that takes discs as an arg and returns <table {data}>.   then render <table in the actual html.
+// const tableRowBuild = (disc) => {
+//   return (
+//     <Fragment>
+//       <tr key={disc.id}>
+//         <td>{disc.brand}</td>
+//         <td>{disc.name}</td>
+//         <td>{disc.plastic}</td>
+//         <td>{disc.speed}</td>
+//         <td>{disc.glide}</td>
+//         <td>{disc.turn}</td>
+//         <td>{disc.fade}</td>
+//       </tr>
+//     </Fragment>
+//   );
+// };
+// const table = await discs.forEach((disc) => tableRowBuild(disc));
