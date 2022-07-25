@@ -7,6 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+//todo    ? means the field is optional.  
 model Discs {
   id      Int     @id(map: "id") @default(autoincrement())
   brand   String? @db.VarChar(50)
