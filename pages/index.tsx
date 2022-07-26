@@ -2,8 +2,6 @@ import { GetServerSideProps, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import { Fragment, useState } from "react";
 import { prisma } from "../lib/prisma";
-import Loader from "../components/Loader";
-import toast from "react-hot-toast";
 
 interface Discs {
   discs: {
