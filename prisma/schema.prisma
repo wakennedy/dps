@@ -7,16 +7,32 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-//todo    ? means the field is optional.  
+model Brand {
+  id      Int       @id @default(autoincrement())
+  name    String    @unique
+  Discs   Discs[]
+  Plastic Plastic[]
+}
+
+model Plastic {
+  id      Int     @id @default(autoincrement())
+  name    String  @unique
+  brandId Int
+  brand   Brand   @relation(fields: [brandId], references: [id])
+  Discs   Discs[]
+}
+
 model Discs {
-  id      Int    @id @default(autoincrement())
-  brand   String @db.VarChar(50)
-  name    String @db.VarChar(50)
-  plastic String @db.VarChar(50)
-  speed   Float  @db.Real
-  glide   Float  @db.Real
-  turn    Float  @db.Real
-  fade    Float  @db.Real
+  id        Int     @id @default(autoincrement())
+  name      String
+  speed     Float?  @db.Real
+  glide     Float?  @db.Real
+  turn      Float?  @db.Real
+  fade      Float?  @db.Real
+  brandId   Int
+  plasticId Int
+  brand     Brand   @relation(fields: [brandId], references: [id])
+  plastic   Plastic @relation(fields: [plasticId], references: [id])
 }
 
 model User {
