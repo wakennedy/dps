@@ -18,60 +18,10 @@ interface Discs {
   }[];
 }
 
-interface FormData {
-  brand: string;
-  name: string;
-  plastic: string;
-  speed: any;
-  glide: any;
-  turn: any;
-  fade: any;
-}
-
-const Home = ({ discs }: Discs) => {
-  const [form, setForm] = useState<FormData>({
-    brand: "",
-    name: "",
-    plastic: "",
-    speed: "",
-    glide: "",
-    turn: "",
-    fade: "",
-  });
-  const router = useRouter();
-
-  const refreshData = () => {
-    router.replace(router.asPath);
-  };
-
-  async function createDisc(data: FormData) {
-    try {
-      fetch("http://localhost:3000/api/disc/createDisc", {
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-      }).then((res) => {
-        console.log(res);
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  const handleSubmit = async (data: FormData) => {
-    try {
-      createDisc(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
+const Home = () => {
   return (
     <div>
       <h1>HomePage, bitch!</h1>
-      <button onClick={() => toast.success("hello toast!")}>Toast!</button>
     </div>
   );
 };
