@@ -47,7 +47,7 @@ const FormPage = () => {
 
   return (
     <div>
-      <h1>Build your db, bitch</h1>
+      <h1>Build your db, bitch!</h1>
       <form
         onSubmit={(e) => {
           e.preventDefault();
