@@ -141,8 +141,8 @@ const Home = ({ discs }: Discs) => {
               <div>
                 <h3></h3>
                 <p>
-                  {disc.brand} | {disc.plastic} |{disc.name} | {disc.speed} |{" "}
-                  {disc.glide} | {disc.turn} |{disc.fade}
+                  | |{disc.name} | {disc.speed} | {disc.glide} | {disc.turn} |
+                  {disc.fade}
                 </p>
               </div>
             </li>
