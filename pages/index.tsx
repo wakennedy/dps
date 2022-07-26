@@ -2,6 +2,8 @@ import { GetServerSideProps, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import { Fragment, useState } from "react";
 import { prisma } from "../lib/prisma";
+import Loader from "../components/Loader";
+import toast from "react-hot-toast";
 
 interface Discs {
   discs: {
@@ -68,87 +70,8 @@ const Home = ({ discs }: Discs) => {
 
   return (
     <div>
-      <h1>Build your db, bitch</h1>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleSubmit(form);
-        }}
-      >
-        <input
-          type="text"
-          placeholder="Brand"
-          value={form.brand}
-          onChange={(e) => setForm({ ...form, brand: e.target.value })}
-        />
-        <br />
-        <input
-          type="text"
-          placeholder="Name"
-          value={form.name}
-          onChange={(e) => setForm({ ...form, name: e.target.value })}
-        />
-        <br />
-        <input
-          type="text"
-          placeholder="Plastic"
-          value={form.plastic}
-          onChange={(e) => setForm({ ...form, plastic: e.target.value })}
-        />
-        <br />
-        <input
-          type="number"
-          step="any"
-          placeholder="Speed"
-          value={form.speed}
-          onChange={(e) => setForm({ ...form, speed: e.target.value })}
-        />
-        <br />
-        <input
-          type="number"
-          step="0.1"
-          placeholder="Glide"
-          value={form.glide}
-          onChange={(e) => setForm({ ...form, glide: e.target.value })}
-        />
-        <br />
-        <input
-          type="number"
-          step="0.1"
-          placeholder="Turn"
-          value={form.turn}
-          onChange={(e) => setForm({ ...form, turn: e.target.value })}
-        />
-        <br />
-        <input
-          type="number"
-          step="0.1"
-          placeholder="Fade"
-          value={form.fade}
-          onChange={(e) => setForm({ ...form, fade: e.target.value })}
-        />
-        <br />
-        <button type="submit" className="bg-blue-500 text-white rounded p-1">
-          Add +
-        </button>
-      </form>
-      <br />
-
-      <div className="w-auto min-w-[25%] max-w-min mt-20 mx-auto space-y-6 flex flex-col items-stretch">
-        <ul>
-          {discs.map((disc) => (
-            <li key={disc.id}>
-              <div>
-                <h3></h3>
-                <p>
-                  {disc.brand} | {disc.plastic} |{disc.name} | {disc.speed} |{" "}
-                  {disc.glide} | {disc.turn} |{disc.fade}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <h1>HomePage, bitch!</h1>
+      <button onClick={() => toast.success("hello toast!")}>Toast!</button>
     </div>
   );
 };
