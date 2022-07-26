@@ -1,6 +1,6 @@
 import { GetServerSideProps, GetStaticProps } from "next";
 import { useRouter } from "next/router";
-import { Fragment, useState } from "react";
+import React, { useState } from "react";
 import { prisma } from "../lib/prisma";
 
 interface Discs {
@@ -18,9 +18,9 @@ interface Discs {
 
 const Home = () => {
   return (
-    <div>
-      <h1>HomePage, bitch!</h1>
-    </div>
+    <>
+      <h1>HomePage, bitch!</h1>;
+    </>
   );
 };
 
