@@ -18,6 +18,9 @@ export default function Navbar() {
           <Link href="/form">
             <button className="btn-logo">FORM</button>
           </Link>
+          <Link href="/about">
+            <button className="btn-logo">ABOUT</button>
+          </Link>
         </li>
       </ul>
     </nav>
