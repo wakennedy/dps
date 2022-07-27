@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useContext } from "react";
+import React, { useContext } from "react";
 
 export default function Navbar() {
   return (
@@ -15,8 +15,8 @@ export default function Navbar() {
           <Link href="/db/data">
             <button className="btn-logo">DATA</button>
           </Link>
-          <Link href="/form">
-            <button className="btn-logo">FORM</button>
+          <Link href="/forms">
+            <button className="btn-logo">FORMS</button>
           </Link>
           <Link href="/about">
             <button className="btn-logo">ABOUT</button>

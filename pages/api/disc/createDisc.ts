@@ -1,3 +1,4 @@
+import { Brand, Plastic } from "@prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "../../../lib/prisma";
 
