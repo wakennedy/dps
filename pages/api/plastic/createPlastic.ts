@@ -2,12 +2,13 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "../../../lib/prisma";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse){
-	let {name} = req.body
-	name = name.toLowerCase();
+	let {name, brand} = req.body
+
 	try {
-		await prisma.brand.create({
+		await prisma.plastic.create({
 			data: {
-		        name
+		        name,
+                brand
 			}
 		})
         // TODO..  this does not work
