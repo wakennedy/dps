@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import BrandForm from "../components/BrandForm";
+import BrandForm from "../components/forms/BrandForm";
 
 const FormsPage = () => {
   return (

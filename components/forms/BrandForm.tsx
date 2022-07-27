@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrandFormData } from "../lib/interfaces";
+import { BrandFormData } from "../../lib/interfaces";
 
 const BrandFormPage = () => {
   const [form, setForm] = useState<BrandFormData>({
@@ -50,7 +50,7 @@ const BrandFormPage = () => {
 
         <br />
         <button type="submit" className="bg-blue-500 text-white rounded p-1">
-          Add +
+          Create Manufacturer
         </button>
       </form>
       <br />
