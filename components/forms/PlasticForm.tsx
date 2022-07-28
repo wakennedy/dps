@@ -7,22 +7,25 @@ import { prisma } from "../../lib/prisma";
 const BrandSelect = (brands: any) => {
   const manu = brands.brands;
   return (
-    <select name="brand" id="brand">
+    <>
       {manu.map((item: any) => {
         return (
-          <option key={item.id} value={item}>
+          <option
+            key={item.id}
+            value={item}
+            // onChange={(e) => setForm({ ...form, brand: e.target.value })}
+          >
             {item.name}
           </option>
         );
       })}
-    </select>
+    </>
   );
 };
-
 const PlasticFormPage = (brands: any) => {
   const [form, setForm] = useState<PlasticFormData>({
     name: "",
-    brand: null,
+    brand: "",
   });
 
   async function createPlastic(data: PlasticFormData) {
@@ -59,7 +62,9 @@ const PlasticFormPage = (brands: any) => {
         }}
       >
         <br />
-        {BrandSelect(brands)}
+        <select name="brand" id="brand">
+          {BrandSelect(brands)}
+        </select>
         <br />
         <input
           type="text"

@@ -6,7 +6,7 @@ export interface BrandFormData {
     name: string;
 }
 export interface PlasticFormData {
-    brand: Brand | null;
+    brand: String | Brand
     name: string;
 }
 // export interface DiscFormData {
