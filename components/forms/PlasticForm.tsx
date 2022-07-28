@@ -4,30 +4,26 @@ import React, { useState } from "react";
 import { PlasticFormData } from "../../lib/interfaces";
 import { prisma } from "../../lib/prisma";
 
-const BrandSelect = (brands: any) => {
-  const manu = brands.brands;
-  return (
-    <>
-      {manu.map((item: any) => {
-        return (
-          <option
-            key={item.id}
-            value={item}
-            // onChange={(e) => setForm({ ...form, brand: e.target.value })}
-          >
-            {item.name}
-          </option>
-        );
-      })}
-    </>
-  );
-};
 const PlasticFormPage = (brands: any) => {
+  const BrandSelect = (brands: any) => {
+    const manu = brands.brands;
+    return (
+      <>
+        {manu.map((item: any) => {
+          return (
+            <option key={item.id} value={item}>
+              {item.name}
+            </option>
+          );
+        })}
+      </>
+    );
+  };
+
   const [form, setForm] = useState<PlasticFormData>({
     name: "",
     brand: "",
   });
-
   async function createPlastic(data: PlasticFormData) {
     try {
       fetch("http://localhost:3000/api/plastic/createPlastic", {
@@ -62,7 +58,11 @@ const PlasticFormPage = (brands: any) => {
         }}
       >
         <br />
-        <select name="brand" id="brand">
+        <select
+          name="brand"
+          id="brand"
+          onChange={(e) => setForm({ ...form, brand: e.target.value })}
+        >
           {BrandSelect(brands)}
         </select>
         <br />
@@ -84,18 +84,3 @@ const PlasticFormPage = (brands: any) => {
 };
 
 export default PlasticFormPage;
-
-// export const getServerSideProps: GetServerSideProps = async () => {
-//   const brands = await prisma.brand.findMany({
-//     select: {
-//       id: true,
-//       name: true,
-//     },
-//   });
-
-//   return {
-//     props: {
-//       brands,
-//     },
-//   };
-// };
