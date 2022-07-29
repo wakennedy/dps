@@ -6,8 +6,8 @@ export interface BrandFormData {
     name: string;
 }
 export interface PlasticFormData {
-    brand: String | Brand
-    name: string;
+    brandId: String | Brand | Number
+    plasticName: string;
 }
 // export interface DiscFormData {
 //     brand: Brand;

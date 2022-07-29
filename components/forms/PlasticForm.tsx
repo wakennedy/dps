@@ -11,7 +11,7 @@ const PlasticFormPage = (brands: any) => {
       <>
         {manu.map((item: any) => {
           return (
-            <option key={item.id} value={item}>
+            <option key={item.id} value={item.id}>
               {item.name}
             </option>
           );
@@ -21,8 +21,8 @@ const PlasticFormPage = (brands: any) => {
   };
 
   const [form, setForm] = useState<PlasticFormData>({
-    name: "",
-    brand: "",
+    plasticName: "",
+    brandId: "",
   });
   async function createPlastic(data: PlasticFormData) {
     try {
@@ -61,7 +61,7 @@ const PlasticFormPage = (brands: any) => {
         <select
           name="brand"
           id="brand"
-          onChange={(e) => setForm({ ...form, brand: e.target.value })}
+          onChange={(e) => setForm({ ...form, brandId: e.target.value })}
         >
           {BrandSelect(brands)}
         </select>
@@ -69,8 +69,8 @@ const PlasticFormPage = (brands: any) => {
         <input
           type="text"
           placeholder="Name"
-          value={form.name}
-          onChange={(e) => setForm({ ...form, name: e.target.value })}
+          value={form.plasticName}
+          onChange={(e) => setForm({ ...form, plasticName: e.target.value })}
         />
         <br />
         <br />

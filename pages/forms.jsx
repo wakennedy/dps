@@ -1,4 +1,3 @@
-import { GetServerSideProps } from "next";
 import React, { useState } from "react";
 import BrandForm from "../components/forms/BrandForm";
 import PlasticFormPage from "../components/forms/PlasticForm";
