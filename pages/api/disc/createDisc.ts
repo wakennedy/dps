@@ -3,8 +3,10 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "../../../lib/prisma";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse){
-	let {brand, name, plastic, speed, glide, turn, fade} = req.body
+	let {brandId, name, plasticId, speed, glide, turn, fade} = req.body
 
+	brandId = Number(brandId)
+	plasticId = Number(plasticId)
 
     speed = parseFloat(speed);
     glide = parseFloat(glide);
@@ -14,15 +16,27 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	try {
 		await prisma.discs.create({
 			data: {
-				brand,
-				name,
-                plastic,
-                speed,
-                glide,
-                turn,
-                fade
-			}
-		})
+				brand: {
+					connect: {
+						id: brandId
+						}
+						},
+				plastic: {
+					connect: {
+						id: plasticId
+						}
+						},
+				name: name,
+				speed: speed,
+				glide: glide,
+				turn: turn,
+				fade: fade
+				},
+			include: {
+				brand: true,
+				plastic: true
+				}
+			})
         // TODO..  this does not work
 		res.status(200).json({message: 'Disc Created'})
 	} catch (error) {

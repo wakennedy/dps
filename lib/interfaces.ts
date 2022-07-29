@@ -9,6 +9,15 @@ export interface PlasticFormData {
     brandId: String | Brand | Number
     plasticName: string;
 }
+export interface DiscFormData {
+    brandId: String | Brand | Number
+    plasticId: String | Plastic | Number
+    discName: string;
+    speed: any;
+    glide: any;
+    turn: any;
+    fade: any;
+}
 // export interface DiscFormData {
 //     brand: Brand;
 //     plastic: Plastic;
