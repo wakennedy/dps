@@ -2,18 +2,27 @@ import React, { useState } from "react";
 import { DiscFormData } from "../../lib/interfaces";
 
 const DiscFormPage = (brands: any, plastics: any) => {
+  const [form, setForm] = useState<DiscFormData>({
+    plasticId: "",
+    brandId: "",
+    discName: "",
+    speed: 0,
+    glide: 0,
+    turn: 0,
+    fade: 0,
+  });
   const BrandSelect = (brands: any) => {
     const manu = brands.brands;
     console.log("BRANDS: ", manu);
     return (
       <>
-        {/* {manu.map((item: any) => {
+        {manu.map((item: any) => {
           return (
             <option key={item.id} value={item.id}>
               {item.name}
             </option>
           );
-        })} */}
+        })}
       </>
     );
   };
@@ -32,15 +41,6 @@ const DiscFormPage = (brands: any, plastics: any) => {
       </>
     );
   };
-  const [form, setForm] = useState<DiscFormData>({
-    plasticId: "",
-    brandId: "",
-    discName: "",
-    speed: 0,
-    glide: 0,
-    turn: 0,
-    fade: 0,
-  });
   async function createDisc(data: DiscFormData) {
     try {
       fetch("http://localhost:3000/api/disc/createDisc", {
@@ -140,5 +140,3 @@ const DiscFormPage = (brands: any, plastics: any) => {
   );
 };
 export default DiscFormPage;
-// Language: typescript
-// Path: components/forms/DiscForm.tsx

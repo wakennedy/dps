@@ -5,12 +5,13 @@ import DiscFormPage from "../components/forms/DiscForm";
 import { prisma } from "../lib/prisma";
 import { Brand, Plastic } from "@prisma/client";
 
-const FormsPage = (brands) => {
+const FormsPage = (brands, plastics) => {
+  console.log("MASTER FORM PAGE PROPS: ", plastics)
   return (
     <div>
       <BrandForm />
       <PlasticFormPage brands={brands.brands} />
-      <DiscFormPage brands={brands.brands}/>
+      <DiscFormPage brands={brands.brands} plastics={plastics}/>
     </div>
   );
 };
@@ -18,7 +19,6 @@ const FormsPage = (brands) => {
 export default FormsPage;
 
 export const getServerSideProps = async () => {
-  // get all brands and plastics from db
   const brands = await prisma.brand.findMany();
   const plastics = await prisma.plastic.findMany();
   return {
@@ -27,23 +27,4 @@ export const getServerSideProps = async () => {
       plastics: plastics,
     },
   };
-  // const brands = await prisma.brand.findMany({
-  //   select: {
-  //     id: true,
-  //     name: true,
-  //   },
-  // });
-  // const plastics = await prisma.plastic.findMany({
-  //   select: {
-  //     id: true,
-  //     name: true,
-  //   },
-  // });
-
-  // return {
-  //   props: {
-  //     brands,
-  //     plastics,
-  //   },
-  // };
 };
