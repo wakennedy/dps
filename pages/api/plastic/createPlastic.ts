@@ -4,9 +4,6 @@ import { prisma } from "../../../lib/prisma";
 export default async function handler(req: NextApiRequest, res: NextApiResponse){
 	let {plasticName, brandId} = req.body
 	// maybe try JSON.parse here to 'even out' the data.
-	console.log("------------------")
-	console.log(plasticName, brandId)
-	//convert brandId to a number
 	brandId = Number(brandId)
 
 	try {

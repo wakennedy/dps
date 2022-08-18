@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { DiscFormData } from "../../lib/interfaces";
+import BrandFormPage from "./BrandForm";
 
 const DiscFormPage = (brands: any, plastics: any) => {
   const [form, setForm] = useState<DiscFormData>({
@@ -13,7 +14,6 @@ const DiscFormPage = (brands: any, plastics: any) => {
   });
   const BrandSelect = (brands: any) => {
     const manu = brands.brands;
-    console.log("BRANDS: ", manu);
     return (
       <>
         {manu.map((item: any) => {
@@ -26,9 +26,9 @@ const DiscFormPage = (brands: any, plastics: any) => {
       </>
     );
   };
-  const PlasticSelect = (plastics: any) => {
-    const materials = plastics;
-    console.log("PLASTICS: ", materials);
+
+  const PlasticSelect = (brand: any) => {
+    //const materials = brand.plastics;
     return (
       <>
         {/* {materials.map((item: any) => {

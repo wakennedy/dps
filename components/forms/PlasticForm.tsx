@@ -75,7 +75,7 @@ const PlasticFormPage = (brands: any) => {
         <br />
         <br />
         <button type="submit" className="bg-blue-500 text-white rounded p-1">
-          Create Manufacturer
+          Create Plastic
         </button>
       </form>
       <br />
